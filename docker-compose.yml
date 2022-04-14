@@ -1,0 +1,29 @@
+version: '3'
+services:
+  db:
+    image: mysql:8.0
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootroot
+      MYSQL_DATABASE: mediscreen
+      MYSQL_USER: root
+      MYSQL_PASSWORD: rootroot
+
+
+  mediscreennoteapi:
+    depends_on:
+      - db
+    image: mediscreenpatientapi
+    ports:
+      - "8081:8081"
+    restart: always
+    environment:
+      MEDISCREEN_DB_HOST: db:3306
+      MEDISCREEN_DB_USER: root
+      MEDISCREEN_DB_PASSWORD: rootroot
+      MEDISCREEN_DB_NAME: mediscreen
+
+volumes:
+  db_data: {}
