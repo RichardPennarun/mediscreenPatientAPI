@@ -23,6 +23,7 @@ https://github.com/RichardPennarun/mediscreenPatientAPI/archive/refs/heads/main.
 Open your terminal window, go to the root folder and run this 2 lines in this order :
 - docker build -t mediscreenpatientapi .
 - docker-compose up -d
+Data are provided in it.
 
 
 ##### Testing
