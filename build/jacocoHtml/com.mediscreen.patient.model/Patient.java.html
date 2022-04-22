@@ -3,32 +3,32 @@
 import javax.persistence.*;
 
 @Entity
-@Table(name=&quot;patients&quot;)
+@Table(name = &quot;patients&quot;)
 public class Patient {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name=&quot;last_name&quot;)
+
+	@Column(name = &quot;last_name&quot;)
 	private String lastName;
-	
-	@Column(name=&quot;first_name&quot;)
+
+	@Column(name = &quot;first_name&quot;)
 	private String firstName;
 
-	@Column(name=&quot;date_of_birth&quot;)
+	@Column(name = &quot;date_of_birth&quot;)
 	private String dob;
-	
+
 	private String sex;
-	
+
 	private String address;
-	
+
 	private String phone;
 
 <span class="fc" id="L28">	public Patient() {</span>
-		
+
 <span class="fc" id="L30">	}</span>
-	
+
 	public Patient(int id, String lastName, String firstName, String dob, String sex, String address, String phone) {
 <span class="fc" id="L33">		super();</span>
 <span class="fc" id="L34">		this.id = id;</span>
@@ -94,10 +94,7 @@ public class Patient {
 
 	public void setPhone(String phone) {
 <span class="fc" id="L96">		this.phone = phone;</span>
-<span class="fc" id="L97">	}	</span>
-	
-	
-	
+<span class="fc" id="L97">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

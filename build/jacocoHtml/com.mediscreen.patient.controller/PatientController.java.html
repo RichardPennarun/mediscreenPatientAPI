@@ -20,8 +20,6 @@ import com.mediscreen.patient.service.PatientService;
 	@Autowired
 	private PatientService patientService;
 
-
-
 	/**
 	 * Read - Get a Patient
 	 * 
@@ -30,25 +28,24 @@ import com.mediscreen.patient.service.PatientService;
 	 */
 	@GetMapping(&quot;/patient/{id}&quot;)
 	public Patient getPatient(@PathVariable(&quot;id&quot;) final Integer id) {
-<span class="fc" id="L33">		Optional&lt;Patient&gt; patient = patientService.getPatient(id);</span>
-<span class="pc bpc" id="L34" title="1 of 2 branches missed.">		if (patient.isPresent()) {</span>
-<span class="nc" id="L35">			return patient.get();</span>
+<span class="fc" id="L31">		Optional&lt;Patient&gt; patient = patientService.getPatient(id);</span>
+<span class="pc bpc" id="L32" title="1 of 2 branches missed.">		if (patient.isPresent()) {</span>
+<span class="nc" id="L33">			return patient.get();</span>
 		} else {
-<span class="fc" id="L37">			return null;</span>
+<span class="fc" id="L35">			return null;</span>
 		}
 	}
-	
+
 	/**
 	 * Read - Get all patients
 	 * 
 	 * @return - An Iterable object of Patient full filled
 	 */
-	
+
 	@GetMapping(&quot;/patients&quot;)
 	public Iterable&lt;Patient&gt; getPatients() {
-<span class="fc" id="L49">		return patientService.getPatients();</span>
+<span class="fc" id="L47">		return patientService.getPatients();</span>
 	}
-
 
 	/**
 	 * Create - Add a new Patient
@@ -58,9 +55,8 @@ import com.mediscreen.patient.service.PatientService;
 	 */
 	@PostMapping(&quot;/patient&quot;)
 	public Patient createPatient(@RequestBody Patient patient) {
-<span class="fc" id="L61">		return patientService.savePatient(patient);</span>
+<span class="fc" id="L58">		return patientService.savePatient(patient);</span>
 	}
-
 
 	/**
 	 * Delete - Delete a Patient
@@ -70,44 +66,50 @@ import com.mediscreen.patient.service.PatientService;
 	 */
 	@DeleteMapping(&quot;/patient/{id}&quot;)
 	public void deletePatient(@PathVariable(&quot;id&quot;) final Integer id) {
-<span class="fc" id="L73">		patientService.deletePatient(id);</span>
-<span class="fc" id="L74">	}</span>
+<span class="fc" id="L69">		patientService.deletePatient(id);</span>
+<span class="fc" id="L70">	}</span>
 
+	/**
+	 * Update a Patient
+	 * 
+	 * @param id an int, patient An object patient
+	 * @return The patient object updated
+	 */
 	@PutMapping(&quot;/patient/{id}&quot;)
 	public Patient updatePatient(@PathVariable(&quot;id&quot;) final Integer id, @RequestBody Patient patient) {
-<span class="fc" id="L78">		Optional&lt;Patient&gt; b = patientService.getPatient(id);</span>
-<span class="pc bpc" id="L79" title="1 of 2 branches missed.">		if (b.isPresent()) {</span>
-<span class="fc" id="L80">			Patient currentPatient = b.get();</span>
+<span class="fc" id="L80">		Optional&lt;Patient&gt; b = patientService.getPatient(id);</span>
+<span class="pc bpc" id="L81" title="1 of 2 branches missed.">		if (b.isPresent()) {</span>
+<span class="fc" id="L82">			Patient currentPatient = b.get();</span>
 
-<span class="fc" id="L82">			String lastName = patient.getLastName();</span>
-<span class="pc bpc" id="L83" title="1 of 2 branches missed.">			if (lastName != null) {</span>
-<span class="fc" id="L84">				currentPatient.setLastName(lastName);</span>
+<span class="fc" id="L84">			String lastName = patient.getLastName();</span>
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">			if (lastName != null) {</span>
+<span class="fc" id="L86">				currentPatient.setLastName(lastName);</span>
 			}
-<span class="fc" id="L86">			String firstName = patient.getFirstName();</span>
-<span class="pc bpc" id="L87" title="1 of 2 branches missed.">			if (firstName != null) {</span>
-<span class="fc" id="L88">				currentPatient.setFirstName(firstName);</span>
+<span class="fc" id="L88">			String firstName = patient.getFirstName();</span>
+<span class="pc bpc" id="L89" title="1 of 2 branches missed.">			if (firstName != null) {</span>
+<span class="fc" id="L90">				currentPatient.setFirstName(firstName);</span>
 			}
-<span class="fc" id="L90">			String dob = patient.getDob();</span>
-<span class="pc bpc" id="L91" title="1 of 2 branches missed.">			if (dob != null) {</span>
-<span class="fc" id="L92">				currentPatient.setDob(dob);</span>
+<span class="fc" id="L92">			String dob = patient.getDob();</span>
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">			if (dob != null) {</span>
+<span class="fc" id="L94">				currentPatient.setDob(dob);</span>
 			}
-<span class="fc" id="L94">			String sex = patient.getSex();</span>
-<span class="pc bpc" id="L95" title="1 of 2 branches missed.">			if (sex != null) {</span>
-<span class="fc" id="L96">				currentPatient.setSex(sex);</span>
+<span class="fc" id="L96">			String sex = patient.getSex();</span>
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">			if (sex != null) {</span>
+<span class="fc" id="L98">				currentPatient.setSex(sex);</span>
 			}
-<span class="fc" id="L98">			String address = patient.getAddress();</span>
-<span class="pc bpc" id="L99" title="1 of 2 branches missed.">			if (address != null) {</span>
-<span class="fc" id="L100">				currentPatient.setAddress(address);</span>
+<span class="fc" id="L100">			String address = patient.getAddress();</span>
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">			if (address != null) {</span>
+<span class="fc" id="L102">				currentPatient.setAddress(address);</span>
 			}
-<span class="fc" id="L102">			String phone = patient.getPhone();</span>
-<span class="pc bpc" id="L103" title="1 of 2 branches missed.">			if (phone != null) {</span>
-<span class="fc" id="L104">				currentPatient.setPhone(phone);</span>
+<span class="fc" id="L104">			String phone = patient.getPhone();</span>
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">			if (phone != null) {</span>
+<span class="fc" id="L106">				currentPatient.setPhone(phone);</span>
 			}
 
-<span class="fc" id="L107">			patientService.savePatient(currentPatient);</span>
-<span class="fc" id="L108">			return currentPatient;</span>
+<span class="fc" id="L109">			patientService.savePatient(currentPatient);</span>
+<span class="fc" id="L110">			return currentPatient;</span>
 		} else {
-<span class="nc" id="L110">			return null;</span>
+<span class="nc" id="L112">			return null;</span>
 		}
 	}
 

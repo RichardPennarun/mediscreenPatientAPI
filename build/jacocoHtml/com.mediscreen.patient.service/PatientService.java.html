@@ -13,23 +13,27 @@ import com.mediscreen.patient.repository.patientRepository;
 
 	@Autowired
 	private patientRepository patientRepository;
-	
+
+	// Get patient by its id
 	public Optional&lt;Patient&gt; getPatient(final Integer id) {
-<span class="fc" id="L18">		return patientRepository.findById(id);</span>
+<span class="fc" id="L19">		return patientRepository.findById(id);</span>
 	}
-	
+
+	// Get all patients
 	public Iterable&lt;Patient&gt; getPatients() {
-<span class="fc" id="L22">		return patientRepository.findAll();</span>
+<span class="fc" id="L24">		return patientRepository.findAll();</span>
 	}
-	
+
+	// Delete patient
 	public void deletePatient(final Integer id) {
-<span class="fc" id="L26">		patientRepository.deleteById(id);</span>
-<span class="fc" id="L27">	}</span>
-	
+<span class="fc" id="L29">		patientRepository.deleteById(id);</span>
+<span class="fc" id="L30">	}</span>
+
+	// Save a patient
 	public Patient savePatient(Patient patient) {
-<span class="fc" id="L30">		Patient savedPatient = patientRepository.save(patient);</span>
-<span class="fc" id="L31">		return savedPatient;</span>
+<span class="fc" id="L34">		Patient savedPatient = patientRepository.save(patient);</span>
+<span class="fc" id="L35">		return savedPatient;</span>
 	}
-	
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
