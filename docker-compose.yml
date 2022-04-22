@@ -1,29 +1,32 @@
 version: '3'
+
 services:
+
+  mediscreenpatientapi:
+    image: mediscreenpatientapi
+    container_name: mediscreenpatientapi
+    ports:
+    - 8081:8081
+    depends_on:
+    - db
+    environment:
+    - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/mediscreen
+    - SPRING_DATASOURCE_USERNAME=mediscreen
+    - SPRING_DATASOURCE_PASSWORD=mediscreen
+  
   db:
     image: mysql:8.0
-    volumes:
-      - db_data:/var/lib/mysql
+    container_name: mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: rootroot
       MYSQL_DATABASE: mediscreen
-      MYSQL_USER: root
-      MYSQL_PASSWORD: rootroot
-
-
-  mediscreennoteapi:
-    depends_on:
-      - db
-    image: mediscreenpatientapi
-    ports:
-      - "8081:8081"
-    restart: always
-    environment:
-      MEDISCREEN_DB_HOST: db:3306
-      MEDISCREEN_DB_USER: root
-      MEDISCREEN_DB_PASSWORD: rootroot
-      MEDISCREEN_DB_NAME: mediscreen
-
+      MYSQL_USER: mediscreen
+      MYSQL_PASSWORD: mediscreen
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+    volumes:
+    - ./mysql-data:/var/lib/mysql
+    - ./sql/createTable.sql:/docker-entrypoint-initdb.d/createTable.sql
+    - ./sql/insertPatients.sql:/docker-entrypoint-initdb.d/insertPatients.sql
+    
 volumes:
-  db_data: {}
+  mysql-data: null

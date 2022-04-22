@@ -1,25 +1,29 @@
-# Getting Started
+# MediscreenPatientApi
 
-### Reference Documentation
-For further reference, please consider the following sections:
+An API with 1 entity, the patient, to manipulate its demographics.
 
-* [Official Gradle documentation](https://docs.gradle.org)
-* [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.6.3/gradle-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.6.3/gradle-plugin/reference/html/#build-image)
-* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/2.6.3/reference/htmlsingle/#boot-features-jpa-and-spring-data)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/2.6.3/reference/htmlsingle/#boot-features-developing-web-applications)
+You will be able to get all patients, to get one patient by its id, to create a new patient, to update demographics for this patient or to delet it.
 
-### Guides
-The following guides illustrate how to use some features concretely:
+All is saved on mysql and packed in Docker.
 
-* [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/)
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
+API exposed port : 8081
 
-### Additional Links
-These additional references should also help you:
 
-* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
+##### Prerequisites
+- Java 11
+- SpringBoot 2.5.5
+- Mysql 8.0
+- Docker
 
+
+##### Running App
+Please download : 
+https://github.com/RichardPennarun/mediscreenPatientAPI/archive/refs/heads/main.zip
+
+Open your terminal window, go to the root folder and run this 2 lines in this order :
+- docker build -t mediscreenpatientapi .
+- docker-compose up -d
+
+
+##### Testing
+The app has a Jacoco test coverage of 94 %

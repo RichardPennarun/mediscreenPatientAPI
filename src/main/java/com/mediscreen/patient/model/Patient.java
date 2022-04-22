@@ -3,32 +3,32 @@ package com.mediscreen.patient.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="patients")
+@Table(name = "patients")
 public class Patient {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="last_name")
+
+	@Column(name = "last_name")
 	private String lastName;
-	
-	@Column(name="first_name")
+
+	@Column(name = "first_name")
 	private String firstName;
 
-	@Column(name="date_of_birth")
+	@Column(name = "date_of_birth")
 	private String dob;
-	
+
 	private String sex;
-	
+
 	private String address;
-	
+
 	private String phone;
 
 	public Patient() {
-		
+
 	}
-	
+
 	public Patient(int id, String lastName, String firstName, String dob, String sex, String address, String phone) {
 		super();
 		this.id = id;
@@ -94,9 +94,6 @@ public class Patient {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}	
-	
-	
-	
+	}
 
 }

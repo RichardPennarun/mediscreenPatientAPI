@@ -13,22 +13,26 @@ public class PatientService {
 
 	@Autowired
 	private patientRepository patientRepository;
-	
+
+	// Get patient by its id
 	public Optional<Patient> getPatient(final Integer id) {
 		return patientRepository.findById(id);
 	}
-	
+
+	// Get all patients
 	public Iterable<Patient> getPatients() {
 		return patientRepository.findAll();
 	}
-	
+
+	// Delete patient
 	public void deletePatient(final Integer id) {
 		patientRepository.deleteById(id);
 	}
-	
+
+	// Save a patient
 	public Patient savePatient(Patient patient) {
 		Patient savedPatient = patientRepository.save(patient);
 		return savedPatient;
 	}
-	
+
 }

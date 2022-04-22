@@ -2,22 +2,17 @@ package com.mediscreen.patient;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.Date;
-import java.util.UUID;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.mediscreen.patient.model.Patient;
 
-
 @SpringBootTest
 public class mediscreenPatientModelTest {
 
-	
 	@Test
 	public void getPatientTest() {
-		
+
 		Patient p = new Patient();
 		p.setLastName("Pennarun");
 		p.setFirstName("Adam");
@@ -33,7 +28,7 @@ public class mediscreenPatientModelTest {
 		assertThat(p.getAddress()).isEqualTo("75020 Paris");
 		assertThat(p.getPhone()).isEqualTo("888-88-88");
 	}
-	
+
 	@Test
 	public void setPatientTest() {
 
@@ -47,6 +42,5 @@ public class mediscreenPatientModelTest {
 		assertThat(patient.getAddress()).isEqualTo("75020 Paris");
 		assertThat(patient.getPhone()).isEqualTo("888-88-88");
 	}
-
 
 }

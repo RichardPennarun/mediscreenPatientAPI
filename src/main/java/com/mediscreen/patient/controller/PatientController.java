@@ -20,8 +20,6 @@ public class PatientController {
 	@Autowired
 	private PatientService patientService;
 
-
-
 	/**
 	 * Read - Get a Patient
 	 * 
@@ -37,18 +35,17 @@ public class PatientController {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * Read - Get all patients
 	 * 
 	 * @return - An Iterable object of Patient full filled
 	 */
-	
+
 	@GetMapping("/patients")
 	public Iterable<Patient> getPatients() {
 		return patientService.getPatients();
 	}
-
 
 	/**
 	 * Create - Add a new Patient
@@ -61,7 +58,6 @@ public class PatientController {
 		return patientService.savePatient(patient);
 	}
 
-
 	/**
 	 * Delete - Delete a Patient
 	 * 
@@ -73,6 +69,12 @@ public class PatientController {
 		patientService.deletePatient(id);
 	}
 
+	/**
+	 * Update a Patient
+	 * 
+	 * @param id an int, patient An object patient
+	 * @return The patient object updated
+	 */
 	@PutMapping("/patient/{id}")
 	public Patient updatePatient(@PathVariable("id") final Integer id, @RequestBody Patient patient) {
 		Optional<Patient> b = patientService.getPatient(id);
