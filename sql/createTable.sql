@@ -10,7 +10,5 @@ CREATE TABLE patients(
   sex VARCHAR(1),
   address VARCHAR(65) NOT NULL,
   phone VARCHAR(20) NOT NULL,
-  last_test_date TIMESTAMP,
-  last_test VARCHAR(20),
   PRIMARY KEY(id)
   );
